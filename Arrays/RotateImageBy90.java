@@ -4,7 +4,6 @@
 // Time Complexity: O(N*N) + O(N*N).One O(N*N) for transposing the matrix and the other for reversing the matrix.
 // Space Complexity: O(1).
 
-import java.util.*;
 class TUF {
     static void rotate(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
