@@ -1,6 +1,9 @@
 // Majority Elements(>N/3 times) | Find the elements that appears more than N/3 times in the array
 // Problem Statement: Given an array of N integers. Find the elements that appears more than N/3 times in the array. If no such element exists, return an empty vector.
 
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
 public class Main {
   public static ArrayList < Integer > majorityElement(int[] nums) {
 
