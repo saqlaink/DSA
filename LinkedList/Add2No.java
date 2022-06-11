@@ -11,7 +11,7 @@
 // Space Complexity: O(max(m,n)). The length of the new list is at most max(m,n)+1.
 
 public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(); 
+        ListNode dummy = new ListNode(-1); 
         ListNode temp = dummy; 
         int carry = 0;
         while( l1 != null || l2 != null || carry == 1) {
