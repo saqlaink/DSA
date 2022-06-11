@@ -7,7 +7,6 @@
 // l2 = [5,6,4]
 // Result: sum = 807; L = [7,0,8]
 
-
 // Time Complexity: O(max(m,n)). Assume that m and n represent the length of l1 and l2 respectively, the algorithm above iterates at most max(m,n) times.
 // Space Complexity: O(max(m,n)). The length of the new list is at most max(m,n)+1.
 
