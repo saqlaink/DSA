@@ -23,10 +23,16 @@ class Stack{
 		}
 	}
 	int pop(){
-		return q.remove();
+		if(!q.isEmpty()){
+      return q.remove();
+    }
+    return -1;
 	}
 	int top(){
-		return q.peek();
+		if(!q.isEmpty()){
+      return q.peek();
+    }
+    return -1;
 	}
 	int size(){
 		return q.size();
