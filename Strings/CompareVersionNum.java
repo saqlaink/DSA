@@ -7,7 +7,7 @@
 // - If version1 < version2, return -1.
 // - If version1 > version2, return 1.
 // - Otherwise, return 0.
-// ```
+
 
 
 
@@ -36,4 +36,3 @@ class Solution {
         return 0;
     }
 }
-```

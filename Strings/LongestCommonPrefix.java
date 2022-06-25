@@ -9,7 +9,7 @@
 // - [ ] Binary Search: 
 // Time Complexity: O(K. logN) where K is the sum of all the characters in all strings.
 // Space Complexity: O(1)
-// ```
+
 
 
 class Solution {
@@ -47,4 +47,3 @@ class Solution {
         return true;
     }
 }
-```
