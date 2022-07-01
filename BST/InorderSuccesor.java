@@ -12,3 +12,19 @@ class Solution {
         return successor;
     }
 }
+
+
+class Solution {
+    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+        TreeNode pred = null;
+        while (root != null) {
+            if (p.val <= root.val) {
+                root = root.left;
+            } else {
+                pred = root;
+                root = root.right;
+            }
+        }
+        return pred;
+    }
+}
