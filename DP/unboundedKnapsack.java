@@ -15,3 +15,22 @@ static int unboundedKnapsack(int n, int W, int[] val,int[] wt) {
     Arrays.fill(row,-1);
     return knapsackUtil(wt, val, n-1, W, dp);
 }
+
+
+
+static int unboundedKnapsack(int n, int W, int[] val,int[] wt) {
+    int[][] dp=new int[n][W+1];
+    for(int i=wt[0]; i<=W; i++){
+        dp[0][i] = ((int) i/wt[0]) * val[0];
+    }
+    for(int ind =1; ind<n; ind++){
+        for(int cap=0; cap<=W; cap++){
+            int notTaken = 0 + dp[ind-1][cap];
+            int taken = Integer.MIN_VALUE;
+            if(wt[ind] <= cap)
+                taken = val[ind] + dp[ind][cap - wt[ind]];
+            dp[ind][cap] = Math.max(notTaken, taken);
+        }
+    }
+    return dp[n-1][W];
+}
