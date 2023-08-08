@@ -3,27 +3,17 @@ class Solution {
         if(num1.equals("0") || num2.equals("0")) return "0";
         int n1 = num1.length(), n2 = num2.length();
         int[] arr = new int[n1+n2];
-        int idx = arr.length - 1, carry = 0, j = n2;
-        for(int i=n2-1;i>=0;i--){
-            int temp = idx;
-            carry = 0;
-            j = n1 - 1;
-            while(j>=0){
-                int prod = (num1.charAt(j) - '0') * (num2.charAt(i) - '0');
-                prod+=carry;
-                carry = (prod + arr[idx])/10;
-                arr[idx] = (arr[idx--] + prod) % 10;
-                j--;
+        for(int i=n1-1;i>=0;i--){
+            for(int j=n2-1;j>=0;j--){
+                arr[i+j+1] += (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+                arr[i+j] += arr[i+j+1]/10;
+                arr[i+j+1] = arr[i+j+1]%10;
             }
-            if(carry > 0) arr[idx--] = carry;
-            idx = temp -1;
         }
         StringBuilder sb = new StringBuilder();
-        boolean is = false;
-        for(int i=0;i<arr.length;i++){
-            if(arr[i] > 0) is = true;
-            if(is) sb.append(arr[i]);
-        }
+        int i = 0;
+        while(arr[i] == 0) i++;
+        while(i<arr.length) sb.append(arr[i++]); 
         return sb.toString();
     }
 }
