@@ -1,11 +1,11 @@
 class Solution {
     public int subArray(List<Integer> nums, int k) {
         int n = nums.size();
-        Map<Integer, Integer> map = new HashMap<>(); // create a map to store the count of each number in the current subarray
-        int count = 0, start = 0, end = 0; //initialize variables for count of valid subarrays, start and end index of subarray
-        while (end < n) { // loop through the array from the start to end index
-            map.put(nums.get(end), map.getOrDefault(nums.get(end), 0) + 1); // add the current element to the map and increment its count
-            while (map.size() > k){//if the number of distinct elements in the map is greater than k, move the start index and remove elements from the map
+        Map<Integer, Integer> map = new HashMap<>(); // count of each number in the current subarray
+        int count = 0, start = 0, end = 0;
+        while (end < n) { 
+            map.put(nums.get(end), map.getOrDefault(nums.get(end), 0) + 1);// add the current element and count++
+            while (map.size() > k){//distinct elements in the map > k, move the start index and remove elements from the map
                 map.put(nums.get(start), map.get(nums.get(start)) - 1); // decrement the count of the element at the start index
                 if (map.get(nums.get(start)) == 0) { // if the count of the element at the start index becomes 0, remove it from the map
                     map.remove(nums.get(start));
