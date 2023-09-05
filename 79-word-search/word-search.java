@@ -9,7 +9,7 @@ class Solution {
         }
         return false;
     }
-    public boolean search(char[][] board, String word, int i,int j, int idx, boolean[][] vis){
+    public boolean search(char[][] board, String word, int i, int j, int idx, boolean[][] vis){
         if(idx == word.length()) return true;
         if(i<0 || j<0 || i>=board.length || j>=board[0].length || board[i][j] != word.charAt(idx) || vis[i][j]) return false;
 
