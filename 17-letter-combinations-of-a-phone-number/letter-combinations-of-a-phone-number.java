@@ -1,20 +1,34 @@
 class Solution {
-    List<String> ans;
-    String[] dial = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    private Map<Character, String> digitToChar = Map.of(
+        '2',"abc",
+        '3',"def",
+        '4',"ghi",
+        '5',"jkl",
+        '6',"mno",
+        '7',"pqrs",
+        '8',"tuv",
+        '9',"wxyz"
+    );
     public List<String> letterCombinations(String digits) {
-        ans = new ArrayList<>();
-        if(digits.length() == 0) return ans;
-        helper("", 0, digits);
+        if (digits.length() == 0) {
+            return new ArrayList();
+        }
+        List<String> ans = new ArrayList();
+        String cur = "";
+        backtrack(digits, ans, cur, 0);
         return ans;
     }
-    public void helper(String comb, int idx,String digits){
-        if(idx == digits.length()){
-            ans.add(comb);
+    public void backtrack(String digits, List<String> ans, String cur,int index) {
+        if (cur.length() == digits.length()) {
+            ans.add(cur);
             return;
-        }
-        String letters = dial[digits.charAt(idx) - '0'];
-        for(int i=0;i<letters.length();i++){
-            helper(comb+letters.charAt(i), idx+1,digits);
+        } else if (index >= digits.length()) {
+            return;
+        } else {
+            String digit = digitToChar.get(digits.charAt(index));
+            for (char c : digit.toCharArray()) {
+                backtrack(digits, ans, cur + c, index + 1);
+            }
         }
     }
 }
